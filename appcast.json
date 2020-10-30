@@ -1,0 +1,11 @@
+{
+    "identifier": "cc.kayanouriko.kurechuu.plugin.18comic",
+    "versions": [
+        {
+            "version": "0.0.1",
+            "des": "测试的第一个版本",
+            "url": "https://github.com/kayanouriko/keruchuuplugin-demo/raw/main/18comic_rule.krp",
+            "standard": 1
+        }
+    ]
+}
