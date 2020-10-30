@@ -1,0 +1,139 @@
+{
+    "info": {
+        "identifier": "cc.kayanouriko.kurechuu.plugin.18comic",
+        "version": "0.0.1",
+        "name": "禁漫天堂",
+        "summary": "禁漫天堂的站点解析",
+        "release": "第一个版本",
+        "icon": "https://18comic.org/favicon.ico",
+        "homepage": "https://kayanouriko.cc",
+        "author": "kayanouriko",
+        "standard": 1
+    },
+    "rule": {
+        "sections": [
+            {
+                "icon": "n.circle",
+                "title": "最新",
+                "url": "https://18comic.org/albums?o=mr&page={page:1}"
+            },
+            {
+                "icon": "k.circle",
+                "title": "韩漫",
+                "url": "https://18comic.org/albums/hanman?page={page:1}"
+            }
+        ],
+        "list": {
+            "item": {
+                "selector": "div.col-xs-6.col-sm-6.col-md-4.col-lg-3.list-col",
+                "type": "array"
+            },
+            "id": {
+                "func": "attr",
+                "param": "href",
+                "selector": "div > a"
+            },
+            "description": {
+                "func": "text",
+                "selector": "span.video-title"
+            },
+            "url": {
+                "func": "attr",
+                "param": "href",
+                "selector": "div > a",
+                "replacement": "https://18comic.org$0"
+            },
+            "title": {
+                "func": "text",
+                "selector": "span.video-title"
+            },
+            "uploader": {
+                "func": "text",
+                "selector": "div.title-truncate a"
+            },
+            "cover": {
+                "func": "attr",
+                "param": "data-original",
+                "selector": "img"
+            },
+            "category": {
+                "func": "text",
+                "selector": "div.label-category"
+            },
+            "time": {
+                "func": "text",
+                "selector": "div.video-views"
+            },
+            "rating": {
+                "func": "text",
+                "selector": "span"
+            },
+            "tags": {
+                "func": "text",
+                "selector": "div.title-truncate + div > a"
+            }
+        },
+        "info": {
+            "flsgs": [
+                "chapter"
+            ],
+            "title": {
+                "func": "text",
+                "selector": "div#itemprop"
+            },
+            "description": {
+                "func": "text",
+                "selector": "div#intro-block > div.p-t-5.p-b-5"
+            },
+            "cover": {
+                "func": "attr",
+                "param": "src",
+                "selector": "div#album_photo_cover img"
+            },
+            "thumb": {
+                "item": {
+                    "selector": "div.col-xs-12.img_zoom > div",
+                    "type": "array"
+                },
+                "thumb": {
+                    "func": "attr",
+                    "param": "src",
+                    "selector": "img"
+                }
+            },
+            "chapter": {
+                "item": {
+                    "selector": "div.episode ul",
+                    "type": "array"
+                },
+                "title": {
+                    "func": "text",
+                    "selector": "li"
+                },
+                "url": {
+                    "func": "attr",
+                    "param": "href",
+                    "selector": "a",
+                    "replacement": "https://18comic.org$0"
+                }
+            },
+            "comment": {
+                "item": {
+                    "selector": "div.col-xs-12.m-t-15.comment-block",
+                    "type": "array"
+                },
+                "author": {
+                    "func": "text",
+                    "selector": "div.comment-info > a > span"
+                },
+                "time": {
+                    "func": "text",
+                    "selector": "div.comment-info > span"
+                },
+                "content": {
+                    "selector": "div.comment-body"
+                }
+            }
+        }
+    }
+}
